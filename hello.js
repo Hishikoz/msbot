@@ -1,3 +1,5 @@
+'use strict';
+
 var builder = require('botbuilder');
 var restify = require('restify');
 
@@ -21,6 +23,11 @@ bot.dialog('/', [
     },
     function(session, result) {
         session.send('Hello, ' + result.response);
+        session.sendTyping();
+        setTimeout(function() {
+            session.send('wait for 5000 ms');            
+        }, 5000);
+
     }
 ]);
 
